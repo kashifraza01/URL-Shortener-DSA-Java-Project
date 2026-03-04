@@ -18,12 +18,14 @@ public class Url{
         //agar pehle se shorten hua hai,same short URL return karo
         if(longtoshort.containsKey(longurl)){ return baseurl+longtoshort.get(longurl); }
 
-        //naya short code banao
+        //naya short code banao base62 encoding se
         String shortcode=A.encode(counter);
         counter++;
 
-        //mein save karo
+        //mapping ko memory me save karo,shortcode ke against long url store karo
         shorttolong.put(shortcode,longurl);
+        
+        //long url ke against shortcode store karo,taky agar dobara same URL aaye to naya code na banay
         longtoshort.put(longurl,shortcode);
 
         //file mein save karo
@@ -80,3 +82,4 @@ private void readfile(){
         }
     }
 }
+
