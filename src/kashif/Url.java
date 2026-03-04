@@ -3,7 +3,7 @@ package kashif;
 import java.io.*;
 import java.util.*;
 
-public class url{
+public class Url{
     private static final String baseurl="http://short.ly/";
     private static final String filepath="urlmappings.txt";
 
