@@ -11,43 +11,36 @@ public class url{
     private Map<String,String> longtoshort=new HashMap<>();
     private long counter=1;
 
-    public url(){
-        readfile();
-    }
+    public url(){ readfile(); }
 
     public String shorturl(String longurl){
-        // Agar pehle se shorten hua hai, same short URL return karo
-        if(longtoshort.containsKey(longurl)){
-            return baseurl+longtoshort.get(longurl);
-        }
+        
+        //agar pehle se shorten hua hai,same short URL return karo
+        if(longtoshort.containsKey(longurl)){ return baseurl+longtoshort.get(longurl); }
 
-        // Naya short code banao
+        //naya short code banao
         String shortcode=a.encode(counter);
         counter++;
 
-        // Maps mein save karo
+        //m mein save karo
         shorttolong.put(shortcode,longurl);
         longtoshort.put(longurl,shortcode);
 
-        // File mein save karo
+        //file mein save karo
         writefile(shortcode,longurl);
 
         return baseurl+shortcode;
     }
 
     public String expandurl(String shorturl){
-        // Short URL format check karo
-        if(!shorturl.startsWith(baseurl)){
-            return "Invalid short URL";
-        }
+        //short URL format check karo
+        if(!shorturl.startsWith(baseurl)){ return "Invalid short URL"; }
 
-        // Short code nikaalo
+        //short code nikalo
         String shortcode=shorturl.substring(baseurl.length());
 
-        // Agar mapping mili toh long URL return karo
-        if(shorttolong.containsKey(shortcode)){
-            return shorttolong.get(shortcode);
-        }
+        //agar mapping mile toh long url return karo
+        if(shorttolong.containsKey(shortcode)){ return shorttolong.get(shortcode); }
 
         return "URL not found";
 }
@@ -64,19 +57,19 @@ private void readfile(){
         File f=new File(filepath);
         if(!f.exists()) return;
 
-        try (BufferedReader br=new BufferedReader(new FileReader(f))) {
+        try(BufferedReader br=new BufferedReader(new FileReader(f))){
             String line;
             
             while((line = br.readLine()) != null){
                 String[] parts=line.split(",", 2);
-                if(parts.length==2) {
-                    String shortcode =parts[0];
-                    String longurl =parts[1];
+                if(parts.length==2){
+                    String shortcode=parts[0];
+                    String longurl=parts[1];
 
                     shorttolong.put(shortcode,longurl);
                     longtoshort.put(longurl,shortcode);
 
-                    // Counter update
+                    //counter update
                     long decoded=a.decode(shortcode);
                     if(decoded>=counter){
                         counter=decoded+1;
