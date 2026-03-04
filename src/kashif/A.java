@@ -1,6 +1,6 @@
 package kashif;
 
-public class a{
+public class A{
 private static final String charset="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 public static String encode(long num){
@@ -20,3 +20,4 @@ public static long decode(String s){
         return num;
    }
 }
+
