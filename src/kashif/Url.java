@@ -15,7 +15,7 @@ public class Url{
 
     public String shorturl(String longurl){
         
-        //agar pehle se shorten hua hai,same short URL return karo
+        //agar pehle se shorten hua hai,same short url return karo
         if(longtoshort.containsKey(longurl)){ return baseurl+longtoshort.get(longurl); }
 
         //naya short code banao base62 encoding se
@@ -82,4 +82,5 @@ private void readfile(){
         }
     }
 }
+
 
