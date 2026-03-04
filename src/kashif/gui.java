@@ -3,54 +3,54 @@ package kashif;
 import javax.swing.*;
 import java.awt.*;
 
-public class gui extends JFrame{
-    private JTextField longurlfield;
-    private JTextField shorturlfield;
-    private JButton shortbutton,expandbutton;
+public class Gui extends JFrame{
+    private JTextField longurlfield;  //luf = longurlfield
+    private JTextField shorturlfield; //suf = shorturlfield
+    private JButton shortbutton,expandbutton;  //sb = short button, eb = expand button 
 
     private url s=new url();
 
-    public gui(){
+    public Gui(){
         setTitle("URL Shortener Application");
         setSize(500,200);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new GridLayout(3,2,10,10));
 
-        longurlfield=new JTextField();
-        shorturlfield=new JTextField();
-        shortbutton=new JButton("Shorten URL");
-        expandbutton=new JButton("Expand URL");
+        luf=new JTextField();
+        suf=new JTextField();
+        sb=new JButton("Shorten URL");
+        eb=new JButton("Expand URL");
 
         add(new JLabel("Long URL:"));
-        add(longurlfield);
+        add(luf);
         add(new JLabel("Short URL:"));
-        add(shorturlfield);
-        add(shortbutton);
-        add(expandbutton);
+        add(suf);
+        add(sb);
+        add(eb);
 
-        shortbutton.addActionListener(e->{
-            String longurl=longurlfield.getText().trim();
-            if(longurl.isEmpty()){
-                JOptionPane.showMessageDialog(null,"Please enter a Long URL!");
+        sb.addActionListener(e->{
+            String lu=luf.getText().trim();
+            if(lu.isEmpty()){
+                JOptionPane.showMessageDialog(null,"please enter a Long URL!");
                 return;
             }
-            String shorturl=s.shorturl(longurl);
-            shorturlfield.setText(shorturl);
+            String su=s.su(lu);
+            suf.setText(su);
         });
 
-        expandbutton.addActionListener(e->{
-            String shorturl=shorturlfield.getText().trim();
-            if(shorturl.isEmpty()){
-                JOptionPane.showMessageDialog(null,"Please enter a Short URL!");
+        eb.addActionListener(e->{
+            String su=suf.getText().trim();
+            if(su.isEmpty()){
+                JOptionPane.showMessageDialog(null,"please enter a Short URL!");
                 return;
             }
-            String original=s.expandurl(shorturl);
-            longurlfield.setText(original);
+            String original=s.eu(su);
+            luf.setText(original);
         });
         setVisible(true);
 }
-    public static void main(String[] args) {
-        new gui();
+    public static void main(String[] args){
+        new Gui();
     }
 }
