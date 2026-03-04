@@ -11,7 +11,7 @@ public class Url{
     private Map<String,String> longtoshort=new HashMap<>();
     private long counter=1;
 
-    public url(){ readfile(); }
+    public Url(){ readfile(); }
 
     public String shorturl(String longurl){
         
@@ -82,3 +82,4 @@ private void readfile(){
         }
     }
 }
+
