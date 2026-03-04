@@ -19,10 +19,10 @@ public class Url{
         if(longtoshort.containsKey(longurl)){ return baseurl+longtoshort.get(longurl); }
 
         //naya short code banao
-        String shortcode=a.encode(counter);
+        String shortcode=A.encode(counter);
         counter++;
 
-        //m mein save karo
+        //mein save karo
         shorttolong.put(shortcode,longurl);
         longtoshort.put(longurl,shortcode);
 
@@ -70,10 +70,8 @@ private void readfile(){
                     longtoshort.put(longurl,shortcode);
 
                     //counter update
-                    long decoded=a.decode(shortcode);
-                    if(decoded>=counter){
-                        counter=decoded+1;
-                    }
+                    long decoded=A.decode(shortcode);
+                    if(decoded>=counter){ counter=decoded+1; }
                 }
             }
         }
@@ -82,4 +80,3 @@ private void readfile(){
         }
     }
 }
-
