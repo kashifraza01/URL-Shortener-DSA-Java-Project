@@ -44,7 +44,7 @@ Make sure you have **Java 8 or higher** installed on your system.
 1. **Clone the repository**:
 
    ```bash
-   git clone [https://github.com/kashifraza01/Number-Guess-Game-Java-OOP-Project.git]
+   git clone [https://github.com/kashifraza01]
    cd URL-Shortener
    ```
 
