@@ -34,6 +34,14 @@ This project demonstrates concepts of:
 
 ---
 
+## 📷 Screenshots
+
+|                Shorten                   |                  Expand                   |
+| ---------------------------------------- | ----------------------------------------- |
+| ![Screenshot1](./ss1.png) | ![Screenshot2](./ss2.png) |
+
+---
+
 ## 🧠 How It Works
 
 ### 1️⃣ Shortening Process
@@ -64,7 +72,7 @@ This project demonstrates concepts of:
 ## 📂 Project Structure
 
 ```id="p1x7zq"
-kashif/
+URL-Shortener-DSA-Java-Project/
  ├── A.java        // Base62 Encoder/Decoder
  ├── Url.java      // Core URL shortening logic
  └── Gui.java      // Swing GUI Interface
