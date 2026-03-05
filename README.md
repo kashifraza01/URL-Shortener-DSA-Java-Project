@@ -1,96 +1,145 @@
-# URL Shortener Application
+# 📌 URL Shortener Application (Java Desktop App)
 
-A simple and efficient **URL Shortener** built using **Java**. This application allows users to shorten long URLs and expand short URLs back to their original form. The URL shortening process uses **Base62 encoding**, and all URL mappings are stored in a persistent text file (`urlmappings.txt`).
+A simple **URL Shortener Application** built using **Java Swing** that converts long URLs into short, unique links using **Base62 Encoding**.
 
----
+This project demonstrates concepts of:
 
-## Features
-
-* **Shorten Long URLs**: Convert long, unwieldy URLs into compact, easy-to-share links.
-* **Expand Short URLs**: Retrieve the original URL from a shortened version.
-* **Persistent Storage**: All shortened URLs and their mappings are saved in a local file, ensuring data persists across sessions.
-* **Base62 Encoding**: Short URLs are generated using Base62 encoding, allowing for a large number of unique short links.
-
----
-
-## How It Works
-
-1. **Shorten URL**:
-
-   * Enter a long URL and click the **"Shorten URL"** button. A unique short URL will be generated and displayed.
-
-2. **Expand URL**:
-
-   * Enter a shortened URL and click the **"Expand URL"** button to retrieve the original long URL.
-
-3. **Persistent Storage**:
-
-   * All URL mappings (short and long) are stored in a text file (`urlmappings.txt`), ensuring that the mappings persist even after the app is closed and reopened.
-
-4. **Base62 Encoding**:
-
-   * The app uses a custom Base62 encoding system (`0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`) to generate short URLs, ensuring scalability and uniqueness.
+* Encoding Algorithms
+* HashMap Data Structures
+* File Handling
+* Persistent Storage
+* GUI Development
 
 ---
 
-## Installation
+## 🚀 Features
 
-### Prerequisites
-
-Make sure you have **Java 8 or higher** installed on your system.
-
-### Steps to Run Locally
-
-1. **Clone the repository**:
-
-   ```bash
-   git clone [https://github.com/kashifraza01]
-   cd URL-Shortener
-   ```
-
-2. **Compile and Run**:
-
-   * Open the project in your favorite Java IDE (e.g., IntelliJ IDEA, Eclipse).
-   * Locate and run the `Gui.java` file to start the application.
-
-3. **Start Shortening URLs**:
-
-   * The graphical user interface (GUI) will open, allowing you to shorten and expand URLs easily.
+* 🔗 Convert Long URL → Short URL
+* 🔁 Expand Short URL → Original URL
+* 💾 Persistent storage using file system (`urlmappings.txt`)
+* 🔢 Base62 Encoding for unique short codes
+* 🖥️ Simple and clean Swing GUI
+* 🔄 Prevents duplicate short links for same URL
 
 ---
 
-## File Structure
+## 🛠️ Technologies Used
 
-```
-URL-Shortener/
-│
-├── kashif/
-│   ├── A.java              # Contains Base62 encoding/decoding logic.
-│   ├── Gui.java            # The graphical user interface for interacting with the URL shortener.
-│   └── Url.java            # Core URL shortening logic (handling mappings, URL encoding/decoding).
-│
-├── urlmappings.txt         # Stores URL mappings (Shortened URL -> Long URL).
-└── README.md               # This README file.
+* **Java**
+* **Java Swing (GUI)**
+* **HashMap**
+* **Base62 Encoding**
+* **File Handling (FileWriter, BufferedReader)**
+* **OOP Concepts**
+
+---
+
+## 🧠 How It Works
+
+### 1️⃣ Shortening Process
+
+* A counter value is maintained.
+* Counter is encoded using **Base62 algorithm**.
+* Generated short code is mapped to long URL.
+* Mapping is stored:
+
+  * In memory (HashMaps)
+  * In file (`urlmappings.txt`) for persistence
+* Final short URL format:
+
+  ```
+  http://short.ly/abc12
+  ```
+
+---
+
+### 2️⃣ Expanding Process
+
+* Extract short code from URL
+* Look up mapping in HashMap
+* Return original long URL
+
+---
+
+## 📂 Project Structure
+
+```id="p1x7zq"
+kashif/
+ ├── A.java        // Base62 Encoder/Decoder
+ ├── Url.java      // Core URL shortening logic
+ └── Gui.java      // Swing GUI Interface
 ```
 
 ---
 
-## Contributing
+## 📌 Core Components
 
-Contributions are welcome! If you find any bugs, have suggestions, or want to improve the project, feel free to:
+### 🔹 `A.java`
 
-* Fork the repository.
-* Open an issue to report a bug or request a feature.
-* Submit a pull request with your changes.
+* Encodes numbers to Base62
+* Decodes Base62 back to number
+
+### 🔹 `Url.java`
+
+* Handles URL mapping
+* Stores data in HashMaps
+* Reads/Writes mappings to file
+* Maintains counter safely
+
+### 🔹 `Gui.java`
+
+* Provides user interface
+* Handles button events
+* Connects UI with URL logic
 
 ---
 
-## License
+## ▶️ How to Run
 
-This project is licensed under the [MIT License](LICENSE).
+1. Open project in IntelliJ / Eclipse / NetBeans
+2. Compile all files
+3. Run `Gui.java`
+4. Enter:
+
+   * Long URL → Click **Shorten**
+   * Short URL → Click **Expand**
 
 ---
 
-## Contact
+## 📚 Concepts Implemented
 
-Author: [Kashif Raza](https://github.com/kashifraza01)
+* Base62 Encoding Algorithm
+* HashMap-based Bidirectional Mapping
+* Persistent Storage via File Handling
+* Event-driven Programming
+* Object-Oriented Design
+* Desktop GUI Application Development
+
+---
+
+## 🎯 Learning Outcome
+
+This project demonstrates:
+
+* Real-world system design (like Bitly)
+* Encoding & Decoding logic
+* Data persistence techniques
+* Efficient lookup using HashMap
+* Java GUI integration with backend logic
+
+---
+
+## 🔮 Future Improvements
+
+* Add database (MySQL) instead of text file
+* Add URL validation
+* Add copy-to-clipboard feature
+* Add link expiry feature
+* Convert into Web Application (Spring Boot)
+* Add analytics (click count tracking)
+
+---
+
+## 👨‍💻 Author
+
+**Kashif Raza**
