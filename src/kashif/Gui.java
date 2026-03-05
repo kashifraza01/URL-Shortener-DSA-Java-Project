@@ -4,11 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Gui extends JFrame{
-    private JTextField luf;  //luf=longurlfield
-    private JTextField suf;  //suf=shorturlfield
-    private JButton sb, eb;  //sb=shortbutton, eb= expandbutton
+    private final JTextField luf;  //luf=longurlfield
+    private final JTextField suf;  //suf=shorturlfield
 
-    private Url s=new Url();
+    private final Url s=new Url();
 
     public Gui(){
         setTitle("URL Shortener Application");
@@ -19,8 +18,9 @@ public class Gui extends JFrame{
 
         luf=new JTextField();
         suf=new JTextField();
-        sb=new JButton("Shorten URL");
-        eb=new JButton("Expand URL");
+        JButton sb = new JButton("Shorten URL");
+        //sb=shortbutton, eb= expandbutton
+        JButton eb = new JButton("Expand URL");
 
         add(new JLabel("Long URL:"));
         add(luf);

@@ -4,11 +4,11 @@ import java.io.*;
 import java.util.*;
 
 public class Url{
-    private static final String baseurl="http://short.ly/";
+    private static final String baseurl= "https://short.ly/";
     private static final String filepath="urlmappings.txt";
 
-    private Map<String,String> shorttolong=new HashMap<>();
-    private Map<String,String> longtoshort=new HashMap<>();
+    private final Map<String,String> shorttolong=new HashMap<>();
+    private final Map<String,String> longtoshort=new HashMap<>();
     private long counter=1;
 
     public Url(){ readfile(); }
